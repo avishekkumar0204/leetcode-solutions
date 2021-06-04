@@ -40,3 +40,20 @@ int main()
     for (auto e : a)
         cout << e << " ";
 }
+
+
+
+bool path(TreeNode *root,int k,vector<TreeNode *> &p)
+{
+    if(root==NULL)
+        return false;
+    if(root->val==k)
+    {
+        p.push_back(root);
+        return true;
+    }
+    bool 
+}
+
+last->next=head2;
+head2->prev=last1;
