@@ -37,3 +37,27 @@ public:
         return path[n - 1][m - 1];
     }
 };
+
+class Solution
+{
+public:
+    int uniquePathsWithObstacles(vector<vector<int>> &A)
+    {
+        int n = A.size(), m = A[0].size();
+        vector<vector<int>> path(n + 1, vector<int>(m + 1, 0));
+        path[1][1] = 1 - A[0][0];
+        for (int row = 0; row < n; row++)
+        {
+            for (int col = 0; col < m; col++)
+            {
+                if (row == 0 && col == 0)
+                    continue;
+                if (A[row][col] == 1)
+                    path[row + 1][col + 1] = 0;
+                else
+                    path[row + 1][col + 1] = path[row][col + 1] + path[row + 1][col];
+            }
+        }
+        return path[n][m];
+    }
+};
